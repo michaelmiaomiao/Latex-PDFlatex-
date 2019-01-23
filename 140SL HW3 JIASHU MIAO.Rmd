@@ -1,0 +1,149 @@
+---
+title: "140SL Individual Assignment 3"
+author: "JIASHU MIAO"
+date: "1/22/2019"
+output:
+  pdf_document:
+    latex_engine: xelatex
+    toc: true
+    toc_depth: 3
+    number_sections: true
+header-includes:
+- \usepackage{color}
+- \usepackage{graphicx}
+- \usepackage{multirow}
+- \usepackage{MnSymbol,wasysym}
+- \usepackage{blindtext}
+
+
+
+
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+\newpage
+
+
+
+
+\section{Introduction}
+\subsection{About me}
+- My name is **Jiashu Miao** and I am a junior student at UCLA double with majors in _statistics_ and _math of computation_. I come from **[Beijing, China](https://en.wikipedia.org/wiki/Beijing)** after high school. I play tennis and badminton and would always be passionate for any new sports. I enjoy my study at **UCLA** and go bruins! \smiley{}
+- Here is my personal website (written with HTML5) : \color{blue}{https://michaelmiaomiao.github.io}.
+
+\subsection{My Hobby -- Collecting Sneakers}
+- I like to collect cool and fancy sneakers and here are some pictures of my favourite ones: 
+
+\begin{description}
+  \item[$\square$ NIKE Air Jordan 13] 
+  \item[$\square$ NIKE Air Force 1] 
+  \item[$\square$ Adidas Yeezy 350 V2] 
+\end{description}
+
+\includegraphics[width=40mm]{aj.png}
+\includegraphics[width=40mm]{af.jpg}
+\includegraphics[width=40mm]{yeezy.png}
+
+
+\newpage
+\section{Use of \LaTeX and R}
+\subsection{Change the color} 
+- My favourite color is \color{blue}{**BLUE**} and I would like to higlight me least favourite color which is \colorbox{yellow}{\textcolor{red}{RED}}. 
+- It is \Huge \color{black}{Great} to meet all you guys in *stats* 140SL and \Large \textbf{Go Bruins!}
+
+\subsection{External Image}
+
+- A screenshot from yesterday's **R** output plot: 
+
+\includegraphics[width=100mm]{test.png}
+
+\subsection{Some R Codes and Graph}
+
+```{r}
+# 1. Loading 
+data("mtcars")
+dataUSE <- mtcars[sample(nrow(mtcars),50,replace = T),]
+# 2. Write a linear regression model to predict Mpg and plot.
+model1 <- lm(data = dataUSE, formula = dataUSE$mpg ~ dataUSE$hp)
+library("ggplot2")
+par(mfrow=c(2,3))
+ggplot(data = dataUSE,aes(dataUSE$hp,dataUSE$mpg))+
+  geom_point()+stat_smooth(method = "lm", col = "red")
+```
+
+
+```{r}
+# Calculation
+x <- seq(5,50,2)
+print(mean(x))
+```
+
+
+
+\subsection{Table}
+### Tennis Tie-break scoring
+\begin{tabular}{l*{6}{c}r}
+\textbf Score         & \textbf Corresponding Call   \\
+\hline
+1–0                   & "One, zero"   \\
+4–3                   & "Four, three"  \\
+4–4, 5–5, 6–6, etc.   & "Four-all", "five-all", "six-all  \\
+4–7, 10–8, etc.       & "set" \\
+\end{tabular}
+
+### Table of Greek Letters
+\begin{table}[h]
+\caption{Table of Greek Letters}
+\centering
+\begin{tabular}{ | c | c | } 
+\hline 
+\hline
+Lower Case & Upper Case \\ \hline
+$\alpha$ & A \\ \hline 
+$\beta$ & B \\ \hline 
+$\gamma$ & $\Gamma$ \\ \hline
+\end{tabular}
+\end{table}
+    
+
+\subsection{Mathematial Output}
+
+### Example of summations
+$$\sum_{x = a}^{b} f(x)$$
+$$\sum_{i=1}^n X_i$$
+
+### Example of Statistics:
+The binomial probability: $$f(y|N,p) = \frac{N!}{y!(N-y)!}\cdot p^y \cdot (1-p)^{N-y} = {{N}\choose{y}} \cdot p^y \cdot (1-p)^{N-y}$$
+
+To calculate the **mean** of \textit{n} observations of variable \textit{x}, you can use: $$\bar{x} = \frac{1}{n} \sum_{i=1}^{n}x_{i}$$ 
+
+Note that this equation looks quite nice above where it's in display math mode. It is more compact but not quite as nice looking if we present it using inline mode, e.g., $\bar{x} = \frac{1}{n} \sum_{i=1}^{n}x_{i}$.
+
+
+\subsection{Matrix and More \LaTeX}
+
+- Upper Triangular Matrix
+$\begin{bmatrix} 
+1 & 1 & 1 \\ 
+0 & 1 & 1 \\ 
+0 & 0 & 1  
+\end{bmatrix}$
+
+$\begin{bmatrix}
+    x_{11} & x_{12} & x_{13} & \dots  & x_{1n} \\
+    x_{21} & x_{22} & x_{23} & \dots  & x_{2n} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    x_{d1} & x_{d2} & x_{d3} & \dots  & x_{dn}
+\end{bmatrix}$
+
+
+
+
+
+
+
+
+
